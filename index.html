@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Générateur de citations</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        background: #f6f7fb;
+      }
+      .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,.1);
+        text-align: center;
+        max-width: 600px;
+      }
+      blockquote {
+        font-size: 1.4rem;
+        font-style: italic;
+        margin: 0 0 1rem;
+      }
+      button {
+        background: #0078d7;
+        border: none;
+        color: white;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      button:hover {
+        background: #005ea0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <blockquote id="quote"></blockquote>
+      <button id="btn">Nouvelle citation</button>
+    </div>
+
+    <script>
+      // Tableau de citations (le même que dans ton app.js)
+      const citations = [
+        "Le succès est la somme de petits efforts répétés jour après jour.",
+        "Apprendre sans réfléchir est vain. Réfléchir sans apprendre est dangereux.",
+        "La simplicité est la sophistication suprême.",
+        "La meilleure façon de prédire l’avenir, c’est de le créer."
+      ];
+
+      // Sélection des éléments HTML
+      const quoteEl = document.getElementById('quote');
+      const btn = document.getElementById('btn');
+
+      // Fonction pour afficher une citation aléatoire
+      function nouvelleCitation() {
+        const index = Math.floor(Math.random() * citations.length);
+        quoteEl.textContent = citations[index];
+      }
+
+      // Affiche une première citation au chargement
+      nouvelleCitation();
+
+      // Change la citation au clic
+      btn.addEventListener('click', nouvelleCitation);
+    </script>
+  </body>
+</html>
